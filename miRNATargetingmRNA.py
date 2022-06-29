@@ -19,12 +19,12 @@ for line in lines:
     formatstr="共%d行，当前第%d行,miRNA: %s" %(len(lines), count, miRNA)
     print(formatstr)
     count += 1
-    # res = requests.post(starbaseurl + miRNA + param)
-    # if res.status_code == 200:
-    #     create_file = open("./mRNA/" + miRNA + ".txt", "wb")
-    #     create_file.write(res.content)
-    #     print("获取的数据：", res.content)
-    #     create_file.close()
+    res = requests.post(starbaseurl + miRNA + param)
+    if res.status_code == 200:
+        create_file = open("./mRNA/" + miRNA + ".txt", "wb")
+        create_file.write(res.content)
+        print("获取的数据：", res.content)
+        create_file.close()
     time.sleep(1.2)
 
 f.close()
